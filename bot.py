@@ -15,15 +15,6 @@ async def on_ready():
     print(f'Logged in as: {bot.user}')
 
 @bot.command()
-async def echo(ctx: commands.Context, arg):
-    embed = discord.Embed(
-        description = arg,
-        color = 0x37352c
-    )
-
-    await ctx.send(embed=embed)
-
-@bot.command()
 async def menu(ctx: commands.Context):
     embed = discord.Embed(
         title="Help Menu",
@@ -34,6 +25,15 @@ async def menu(ctx: commands.Context):
     embed.add_field(name = "`menu`", value = "Displays the help menu.")
     embed.add_field(name="Fun", value=" ", inline=False)
     embed.add_field(name="`echo`", value="Repeats what you say.")
+
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def echo(ctx: commands.Context, arg):
+    embed = discord.Embed(
+        description = arg,
+        color = 0x37352c
+    )
 
     await ctx.send(embed=embed)
 
